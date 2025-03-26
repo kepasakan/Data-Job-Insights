@@ -1,4 +1,4 @@
-# 📊 **SQL Job Market Analysis: Uncovering In-Demand Skills & Trends in Data Roles**
+# 📊 *SQL Job Market Analysis: Uncovering In-Demand Skills & Trends in Data Roles*
 
 ## **Introduction**
 
