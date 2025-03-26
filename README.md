@@ -77,7 +77,7 @@ The results will help determine which countries contribute the most job postings
 
 
 
-![proportion of country](asset\1_country_proportion.png)
+![proportion of country](asset/1_country_proportion.png)
 *A bar chart was created to display the top 10 countries with the highest proportion of job postings.*
 
 ---
