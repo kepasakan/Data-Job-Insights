@@ -16,6 +16,9 @@ Check out my SQL queries here: [project_sql](project_sql)
 - [Conclusion](#conclusion)  
 
 ## **Background**
+
+![data role](asset/2_data_role_picture.PNG)
+
 The motivation behind this project comes from my desire to understand the job market for data roles more effectively. I wanted to identify which skills are most in demand and whether a degree is still a crucial requirement. By analyzing real job postings, I aim to gain insights that can help job seekers focus on the right skills and qualifications.
 
 The data for this analysis comes from [Insert Data Source], which includes job postings with details on job titles, required skills, and degree preferences.
