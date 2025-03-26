@@ -11,7 +11,7 @@ ORDER BY
     proportion_percent DESC;
 
 
--- skill in data set ---------------------------------
+-- job in data set ---------------------------------
 SELECT
     job_title_short,
     count(*) AS no_of_job
@@ -23,7 +23,7 @@ ORDER BY
     no_of_job DESC;
 
 
--- skill demand each role ---------------------
+-- top 5 skill demand each role ---------------------
 WITH skill_demand AS
 (
     SELECT
@@ -44,10 +44,10 @@ SELECT
 FROM
     skill_demand
 WHERE
---    job_role = 'Data Analyst'
+   job_role = 'Data Analyst'
 --    job_role = 'Data Scientist'
 --    job_role = 'Data Engineer'
-    job_role = 'Senior Data Analyst'
+--    job_role = 'Senior Data Analyst'
 --    job_role = 'Senior Data Scientist'
 --    job_role = 'Senior Data Engineer'
 GROUP BY
@@ -71,24 +71,4 @@ WHERE
 --    job_title_short = 'Senior Data Scientist'
 --    job_title_short = 'Senior Data Engineer'
 GROUP BY
-    job_no_degree_mention
-
--- check have salary on dataset
-SELECT
-    job_id
-FROM
-    job_postings_fact
-WHERE
-    salary_hour_avg IS NULL
-
--- SALARY YEAR
--- 22034 HAVE VALUE
--- 765658 NULL
-
--- SALARY HOUR
--- 10665 HAVE VALUE
--- 777021 NULL
-
-
---787692
-
+    job_no_degree_mention;
