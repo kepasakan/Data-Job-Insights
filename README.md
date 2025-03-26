@@ -45,7 +45,9 @@ To understand the origin of this dataset, we first analyze the proportion of job
 
 SQL Query:
 ```sql
--- propportion of dataset for each country -----------------
+-- This SQL query calculates the proportion of job postings for each country in the dataset.
+-- It provides insights into which countries contribute the most job listings.
+
 SELECT 
     job_country, 
     COUNT(*) AS total_jobs, 
@@ -56,6 +58,7 @@ GROUP BY
     job_country
 ORDER BY 
     proportion_percent DESC;
+
 ```
 ### Explanation:
 
@@ -86,10 +89,12 @@ To analyze which job roles are most prevalent in the dataset, we look at the pro
 SQL Query:
 
 ```sql
--- job in data set ---------------------------------
+-- This SQL query retrieves the number of job postings for each job title.
+-- It helps identify which data roles are most in demand.
+
 SELECT
     job_title_short,
-    count(*) AS no_of_job
+    COUNT(*) AS no_of_job
 FROM
     job_postings_fact
 GROUP BY
@@ -148,8 +153,11 @@ To identify the most sought-after skills for Data Analyst roles, we analyze the 
 SQL Query:
 
 ```sql
-WITH skill_demand AS
-(
+-- This SQL query identifies the top 5 most in-demand skills for each data role.
+-- It joins job postings with the required skills to analyze skill demand.
+
+WITH skill_demand AS 
+    (
     SELECT
         job_postings_fact.job_id AS id_job,
         skills_dim.skills AS skill,
@@ -160,19 +168,19 @@ WITH skill_demand AS
             ON job_postings_fact.job_id = skills_job_dim.job_id
         LEFT JOIN skills_dim
             ON skills_job_dim.skill_id = skills_dim.skill_id
-)
+    )
 
 SELECT
     skill,
-    COUNT(id_job) AS demand_count
+    COUNT(id_job)
 FROM
     skill_demand
 WHERE
-    job_role = 'Data Analyst'
+   job_role = 'Data Analyst'
 GROUP BY
     skill
 ORDER BY
-    demand_count DESC
+    COUNT(id_job) DESC
 LIMIT 5;
 ```
 
@@ -204,13 +212,16 @@ To analyze whether a degree is required for **Data Analyst** roles, we examine j
 
 #### **SQL Query:**
 ```sql
+-- This SQL query analyzes whether a degree is required for Data Analyst job postings.
+-- It helps determine the importance of formal education in hiring decisions.
+
 SELECT
     job_no_degree_mention,
     COUNT(*) AS no_of_job
 FROM
     job_postings_fact
 WHERE
-    job_title_short = 'Data Analyst'
+   job_title_short = 'Data Analyst'
 GROUP BY
     job_no_degree_mention;
 ```
